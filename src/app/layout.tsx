@@ -26,7 +26,7 @@ export default function RootLayout({
           <ul className="docLinks">
             <li><a href="/intro">Introduction</a></li>
             <li><a href="/tutorials">Tutorials</a></li>
-            <li><a href="/news">What{`'`}s New {/* Arrow SVG */}</a></li>
+            <li><a href="/news">What&apos;s New {/* Arrow SVG */}</a></li>
             <li>
               <a href="/reactor/1-0-0/overview">The Reactor [Core] {/* Arrow SVG */}</a>
               <ul>
@@ -49,7 +49,7 @@ export default function RootLayout({
           </ul>
           <a href="/tutorials/indy/beginner/your-first-app" className="cta">
             <div>
-               <h4>Don{`'`}t Know Where To Start?</h4>
+               <h4>Don&apos;t Know Where To Start?</h4>
               <p>Learn to build your first application with our beginner tutorial</p>
               <div>{ /* Make this an image */}</div>
             </div>
