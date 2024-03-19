@@ -1,0 +1,60 @@
+#postTOC,
+.scrollLinks {
+    display: flex;
+}
+
+#postTOC {
+    flex: none;
+    z-index: 1;
+
+    transform-origin: right;
+
+    position: sticky;
+    top: 0%;
+
+    flex-direction: column;
+    gap: 16px;
+
+    margin: 0 32px;
+    padding: 24px;
+
+    min-width: 256px;
+    min-height: 384px;
+    height: max-content;
+
+    background-color: var(--dark-primary);
+    border: 1px solid var(--dark-secondary);
+    border-radius: 32px;
+
+    transition: all .25s ease-out;
+}
+
+#postTOC .collapseIcon {
+    border-radius: 50%;
+    background-color: var(--dark-secondary);
+    width: 32px;
+    height: 32px;
+}
+
+#postTOC.sticking {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.scrollLinks {
+    flex-direction: column;
+    width: 100%;
+}
+
+.scrollLinks > * {
+    z-index: 1;
+    padding: 8px 16px;
+    color: rgba(var(--dark-text-rgb), 0.5);
+    border-radius: 32px;
+    font-size: 12px;
+}
+
+.activeHeading {
+    background-color: var(--dark-secondary-accent-dark);
+    color: var(--dark-secondary-accent-light);
+}

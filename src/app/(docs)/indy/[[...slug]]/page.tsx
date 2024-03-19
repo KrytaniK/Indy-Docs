@@ -1,6 +1,6 @@
 import React from "react"
-import styles from "../../../homepage.module.css" // temp
-import Markdown from "@/components/markdown";
+import Markdown from "@/components/markdown/markdown";
+import { PageHeader } from "@/components";
 
 export default function IndyDocPage({ params }: { params: { slug: [string, string] } })
 {
@@ -10,16 +10,12 @@ export default function IndyDocPage({ params }: { params: { slug: [string, strin
     const mdxSource = `docs/indy/v${version}/${page}.mdx`;
 
     return <main>
-        <section className={styles.heading}>
-            <span style={{opacity: "50%"}}>v{version}</span>
-            <h1>Indy</h1>
-            <div className={styles.pageInfo}>
-                {/* Page Description */}
-                <span>Your one-stop shop for working with and learning about the Indy Game Engine</span>
-                {/* Page name */}
-                <span>{page}</span>
-            </div>
-        </section>
+         <PageHeader
+            version={version}
+            title="Indy"
+            shortDesc={"Your one-stop shop for working with and learning about the Indy Game Engine"}
+            page={page}
+        />
         <Markdown sourceFile={mdxSource} />
     </main>
 }
