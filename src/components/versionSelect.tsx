@@ -44,11 +44,11 @@ export default function VersionSelect():
             SetInitialState();
 
         // This is generating red squigglies, despite being valid code. Idk why.
-        document.addEventListener("docs-version-request", HandleVersionRequest);
+        document.addEventListener("docs-version-request", HandleVersionRequest as EventListener);
 
         return () => {
             // This is generating red squigglies, despite being valid code. Idk why.
-            document.removeEventListener("docs-version-request", HandleVersionRequest);
+            document.removeEventListener("docs-version-request", HandleVersionRequest as EventListener);
         }
 
     }, [defaultVersion]);

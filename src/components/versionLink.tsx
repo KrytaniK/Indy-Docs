@@ -25,8 +25,6 @@ export default function VersionLink(
         const customEvent = new CustomEvent("docs-version-request", {
             detail: {
                 callback: (version: string) => {
-                    console.log(`Returned Version: ${version}`);
-
                     // Format Version String (Retrieved as 'v[Major].[Minor].[Patch]')
                     const formattedVersion = version.replace("v", "").replaceAll(".", "-");
                     
