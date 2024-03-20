@@ -1,0 +1,24 @@
+.heading, .pageInfo {
+    display: flex;
+}
+
+.heading {
+    width: 100%;
+    min-height: 320px;
+    padding: 32px;
+
+    border-radius: 32px;
+    background-color: rgba(var(--dark-secondary-rgb), 0.5);
+
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.pageInfo {
+    justify-content: space-between;
+}
+
+.pageInfo :first-child {
+    opacity: 50%;
+}

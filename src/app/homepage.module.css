@@ -1,27 +1,3 @@
-.heading {
-    width: 100%;
-
-    min-height: 320px;
-
-    border-radius: 32px;
-    background-color: rgba(var(--dark-secondary-rgb), 0.5);
-    padding: 32px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 8px;
-}
-
-.pageInfo {
-    display: flex;
-    justify-content: space-between;
-}
-
-.pageInfo :first-child {
-    opacity: 50%;
-}
-
 .sectionWrapper {
     display: flex;
     flex-direction: column;

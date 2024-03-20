@@ -1,0 +1,9 @@
+.markdownContainer {
+    padding: 16px 0px 16px 64px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.content {
+    flex: 1;
+}
