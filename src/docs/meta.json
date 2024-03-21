@@ -1,0 +1,78 @@
+{
+    "nav": {
+        "links": [
+            {
+                "title": "Roadmap",
+                "href": "/roadmap"
+            },
+            {
+                "title": "Reference",
+                "href": "/reference"
+            },
+            {
+                "title": "Blog",
+                "href": "/blog"
+            }
+        ]
+    },
+    "pages": {
+        "intro": {
+            "title": "Introduction",
+            "shortDesc": "",
+            "href": "/intro",
+            "pages": {}
+        },
+        "tutorials": {
+            "title": "Tutorials",
+            "shortDesc": "",
+            "href": "/tutorials",
+            "pages": {}
+        },
+        "news": {
+            "title": "What's New",
+            "shortDesc": "",
+            "href": "/news",
+            "pages": {
+
+            }
+        },
+        "core": {
+            "title": "The Reactor [Core]",
+            "shortDesc": "",
+            "href": "/reactor/1-0-0/overview",
+            "pages": {
+                "overview": {
+                    "title": "Overview",
+                    "shortDesc": "",
+                    "href": "/reactor/1-0-0/overview",
+                    "pages": {}
+                },
+                "quickstart": {
+                    "title": "Quick Start Guide",
+                    "shortDesc": "",
+                    "href": "/reactor/1-0-0/quick-start-guide",
+                    "pages": {}
+                }
+            }
+        },
+        "editor": {
+            "title": "Indy Engine [Editor]",
+            "shortDesc": "",
+            "href": "/indy/1-0-0/overview",
+            "pages": {
+                "overview": {
+                    "title": "Overview",
+                    "shortDesc": "",
+                    "href": "/indy/1-0-0/overview",
+                    "pages": {}
+                },
+                "quickstart": {
+                    "title": "Quick Start Guide",
+                    "shortDesc": "",
+                    "href": "/indy/1-0-0/quick-start-guide",
+                    "pages": {}
+                }
+            }
+        }
+    }
+}

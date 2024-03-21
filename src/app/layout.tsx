@@ -1,6 +1,34 @@
-import { VersionSelect, VersionLink } from "../components";
+import { VersionSelect, VersionLink, SearchBar } from "../components";
+import DocData from "@/docs/meta.json";
 
 import "@/globals.css";
+
+type DocPageEntry = {
+  title: string,
+  shortDesc: string,
+  href: string,
+  pages: any
+}
+
+function GenerateSidebarLinks(pageList: Object, listClass?: string): React.ReactNode {
+  const pages = Object.entries(pageList);
+  if (pages.length === 0) return null;
+
+  const versionRegex = /\d+-\d+-\d+/;
+
+  return <ul className={listClass}>
+    {pages.map((entry) => {
+      const page: DocPageEntry = entry[1];
+
+      const hasVersion: boolean = versionRegex.test(page.href);
+      
+      return <li key={entry[0]}>
+        <VersionLink href={page.href} versionIndex={hasVersion ? 1 : -1}>{page.title}</VersionLink>
+        {GenerateSidebarLinks(page.pages)}
+      </li>
+    })}
+  </ul>
+}
 
 export default function RootLayout({
   children,
@@ -18,32 +46,16 @@ export default function RootLayout({
         <div className="navPanel">
           <VersionLink href="/">Indy Docs</VersionLink>
           <VersionSelect/>
-          <input placeholder="Search All Documentation"/>
-          <VersionLink href="/roadmap">Roadmap</VersionLink>
-          <VersionLink href="/reference">Reference</VersionLink>
-          <VersionLink href="/blog">Blog</VersionLink>
+          <SearchBar docsMetadata={DocData} />
+          {DocData.nav.links.map((link) => {
+            return <VersionLink key={link.href} href={link.href}>{link.title}</VersionLink>
+          })}
         </div>
         <div className="sidePanel">
           <input placeholder="Filter Pages" />
-          <ul className="docLinks">
-            <li><VersionLink href="/intro">Introduction</VersionLink></li>
-            <li><VersionLink href="/tutorials">Tutorials</VersionLink></li>
-            <li><VersionLink href="/news">What&apos;s New {/* Arrow SVG */}</VersionLink></li>
-            <li>
-              <VersionLink href="/reactor/1-0-0/overview" versionIndex={1}>The Reactor [Core] {/* Arrow SVG */}</VersionLink>
-              <ul>
-                <li><VersionLink href="/reactor/1-0-0/overview" versionIndex={1}>Overview</VersionLink></li>
-                <li><VersionLink href="/reactor/1-0-0/quick-start-guide" versionIndex={1}>Quick Start Guide</VersionLink></li>
-              </ul>
-            </li>
-            <li>
-              <VersionLink href="/indy/1-0-0/overview" versionIndex={1}>Indy [Editor] {/* Arrow SVG */}</VersionLink>
-              <ul>
-                <li><VersionLink href="/indy/1-0-0/overview" versionIndex={1}>Overview</VersionLink></li>
-                <li><VersionLink href="/indy/1-0-0/quick-start-guide" versionIndex={1}>Quick Start Guide</VersionLink></li>
-              </ul>
-            </li>
-          </ul>
+          
+          {GenerateSidebarLinks(DocData.pages, "docLinks")}
+
           <ul className="resources">
             <h4>Resources</h4>
             <li><VersionLink newTab={true} href="https://www.github.com/krytanik/indy">{/* Github SVG */} Github Repository {/* Arrow Diag SVG */}</VersionLink></li>

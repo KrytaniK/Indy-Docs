@@ -4,6 +4,7 @@ import ScrollTo from "./ScrollTo";
 import TableOfContents from "./tableOfContents/tableOfContents";
 import VersionSelect from "./versionSelect";
 import VersionLink from "./versionLink";
+import SearchBar from "./searchbar/searchbar";
 
 export {
   PageHeader,
@@ -12,4 +13,5 @@ export {
   TableOfContents,
   VersionSelect,
   VersionLink,
+  SearchBar,
 };

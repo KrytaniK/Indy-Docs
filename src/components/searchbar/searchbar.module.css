@@ -1,0 +1,114 @@
+.searchContainer {
+    flex: 1;
+    margin: 0 64px;
+    position: relative;
+
+    font-size: 12px;
+
+    z-index: 10;
+}
+
+.backgroundBlur {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: all .25s ease-in-out;
+
+    z-index: 1;
+}
+
+.backgroundBlur.active {
+    background-color: rgba(var(--black-rgb), 0.75);
+    pointer-events: all;
+    backdrop-filter: blur(4px);
+}
+
+.searchResults, .userInput {
+    width: 100%;
+    height: 100%;
+    transition: all .25s ease-in-out;
+}
+
+.userInput {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+
+    background-color: var(--dark-primary);
+    padding: 8px 16px;
+    border: 2px solid var(--dark-secondary);
+    border-radius: 32px;
+    color: var(--dark-text);
+    
+    outline: 1px solid transparent;
+    z-index: 1;
+}
+
+.userInput:focus {
+    outline: 1px solid var(--dark-text);
+    border-color: transparent;
+}
+
+.userInput.active {
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+.searchResults {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    pointer-events: none;
+
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.searchResults::before {
+    padding: 0;
+
+    transition: all .5s ease-in-out;
+    z-index: -1;
+}
+
+.searchResults::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-primary);
+    border-radius: inherit;
+}
+
+.searchResults.active {
+    pointer-events: all;
+    min-height: calc(min(512px, 50vh));
+
+    background-color: var(--dark-primary);
+}
+
+.searchResults.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    transform: translate(-2px, -2px);
+    border-radius: inherit;
+    background: linear-gradient(to bottom, var(--black),
+            var(--dark-secondary));
+}

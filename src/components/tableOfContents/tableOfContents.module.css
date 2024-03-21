@@ -4,8 +4,9 @@
 }
 
 #postTOC {
+    z-index: -1;
+
     flex: none;
-    z-index: 1;
 
     transform-origin: right;
 
@@ -47,7 +48,6 @@
 }
 
 .scrollLinks > * {
-    z-index: 1;
     padding: 8px 16px;
     color: rgba(var(--dark-text-rgb), 0.5);
     border-radius: 32px;
@@ -55,6 +55,6 @@
 }
 
 .activeHeading {
-    background-color: var(--dark-secondary-accent-dark);
-    color: var(--dark-secondary-accent-light);
+    background-color: var(--dark-accent-dark);
+    color: var(--dark-accent-light);
 }
