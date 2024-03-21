@@ -4,8 +4,6 @@
 }
 
 #postTOC {
-    z-index: -1;
-
     flex: none;
 
     transform-origin: right;

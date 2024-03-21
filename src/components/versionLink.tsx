@@ -32,8 +32,10 @@ export default function VersionLink(
                     
                     // Check for patterns of [digit]-[digit]-[digit]
                     const versionRegex = /\d+-\d+-\d+/;
+
                     for (let i = 0; i < splitLink.length; i++) { 
-                        if (versionRegex.test(splitLink[i])) 
+                        // only match exactly the pattern [digit]-[digit]-[digit]
+                        if (versionRegex.test(splitLink[i]) && splitLink[i].split("-").length == 3)
                             splitLink[i] = formattedVersion;
                     }
 

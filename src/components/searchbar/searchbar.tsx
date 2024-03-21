@@ -98,7 +98,9 @@ export default function SearchBar({ docsMetadata }: SearchBarProps): React.React
                 onChange={QueryDocs}
             ></input>
             <div onFocus={ToggleFocus} className={`${styles.searchResults} ${searchState.open ? styles.active : ""}`}>
-                {RenderSearchResults(searchState.matches)}
+                <div>
+                    {searchState.open && RenderSearchResults(searchState.matches)}
+                </div>
             </div>
         </section>
     </>;
