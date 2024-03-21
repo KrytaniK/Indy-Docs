@@ -18,19 +18,19 @@
     "pages": {
         "intro": {
             "title": "Introduction",
-            "shortDesc": "",
+            "desc": "",
             "href": "/intro",
             "pages": {}
         },
         "tutorials": {
             "title": "Tutorials",
-            "shortDesc": "",
+            "desc": "",
             "href": "/tutorials",
             "pages": {}
         },
         "news": {
             "title": "What's New",
-            "shortDesc": "",
+            "desc": "dick",
             "href": "/news",
             "pages": {
 
@@ -38,18 +38,18 @@
         },
         "core": {
             "title": "The Reactor [Core]",
-            "shortDesc": "",
+            "desc": "",
             "href": "/reactor/1-0-0/overview",
             "pages": {
                 "overview": {
                     "title": "Overview",
-                    "shortDesc": "",
+                    "desc": "",
                     "href": "/reactor/1-0-0/overview",
                     "pages": {}
                 },
                 "quickstart": {
                     "title": "Quick Start Guide",
-                    "shortDesc": "",
+                    "desc": "",
                     "href": "/reactor/1-0-0/quick-start-guide",
                     "pages": {}
                 }
@@ -57,18 +57,18 @@
         },
         "editor": {
             "title": "Indy Engine [Editor]",
-            "shortDesc": "",
+            "desc": "",
             "href": "/indy/1-0-0/overview",
             "pages": {
                 "overview": {
                     "title": "Overview",
-                    "shortDesc": "",
+                    "desc": "",
                     "href": "/indy/1-0-0/overview",
                     "pages": {}
                 },
                 "quickstart": {
                     "title": "Quick Start Guide",
-                    "shortDesc": "",
+                    "desc": "",
                     "href": "/indy/1-0-0/quick-start-guide",
                     "pages": {}
                 }

@@ -14,16 +14,12 @@ function GenerateSidebarLinks(pageList: Object, listClass?: string): React.React
   const pages = Object.entries(pageList);
   if (pages.length === 0) return null;
 
-  const versionRegex = /\d+-\d+-\d+/;
-
   return <ul className={listClass}>
     {pages.map((entry) => {
       const page: DocPageEntry = entry[1];
-
-      const hasVersion: boolean = versionRegex.test(page.href);
       
       return <li key={entry[0]}>
-        <VersionLink href={page.href} versionIndex={hasVersion ? 1 : -1}>{page.title}</VersionLink>
+        <VersionLink href={page.href}>{page.title}</VersionLink>
         {GenerateSidebarLinks(page.pages)}
       </li>
     })}
