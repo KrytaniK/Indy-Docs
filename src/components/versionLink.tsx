@@ -43,7 +43,7 @@ export default function VersionLink(
                     const formattedLink = splitLink.join("/");
 
                     // Utilize Default Link Behavior with Next Router to ensure persistant state
-                    push(formattedLink);
+                        push(formattedLink);
                 }
             }
         });
@@ -51,5 +51,11 @@ export default function VersionLink(
         document.dispatchEvent(customEvent);
     }
 
-    return <Link style={{display: "block"}} className={className} target={newTab ? "_blank" : "_self"} href={href} onClick={Navigate}>{children}</Link>;
+    return <Link
+        style={{ display: "block" }}
+        className={className}
+        target={newTab ? "_blank" : "_self"}
+        href={href}
+        onClick={(e) => newTab ? null : Navigate(e)}
+    >{children}</Link>;
 }

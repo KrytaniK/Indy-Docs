@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { Dropdown, VersionLink } from "..";
 import styles from "./searchbar.module.css";
-import { VersionLink } from "..";
 
 type DocPageEntry = {
     title: string,
@@ -21,7 +21,6 @@ type SearchBarProps = {
 }
 
 type SearchBarState = {
-    open: boolean,
     query: string,
     matches: DocPageMatch[],
 }
@@ -30,14 +29,11 @@ type DocPageMatchFunction = (page: DocPageEntry) => boolean;
 
 export default function SearchBar({ docsMetadata }: SearchBarProps): React.ReactNode {
     const [searchState, SetSearchState] = useState<SearchBarState>({
-        open: false,
         query: "",
         matches: []
     });
 
-    function ToggleFocus() {
-        SetSearchState((prev) => ({ ...prev, open: !prev.open }));
-    }
+    const bgRef: any = useRef();
 
     function MatchDocQuery(pages: Object, match: DocPageMatchFunction): DocPageMatch[] {
         const matches: DocPageMatch[] = [];
@@ -70,36 +66,54 @@ export default function SearchBar({ docsMetadata }: SearchBarProps): React.React
         SetSearchState((prev) => ({ ...prev, query, matches }));
     }
 
-    function RenderSearchResults(matches: DocPageMatch[]): React.ReactNode {
+    function RenderSearchResults(matches: DocPageMatch[]): React.ReactNode | React.ReactElement | React.ReactElement[] {
         if (matches.length === 0) return null;
 
         return matches.map((match) => {
-            return <div
+            return <li
                 className={styles.searchResult}
                 key={match.page.href}
                 onClick={() => SetSearchState((prev) => ({ ...prev, open: false }))}
             >
                 <VersionLink href={match.page.href} className={styles.title} key={match.page.href}>{match.page.title}</VersionLink>
                 <p className={styles.desc}>{match.page.desc}</p>
-                {RenderSearchResults(match.children)}
-            </div>
+                {<ul>
+                    {RenderSearchResults(match.children)}
+                </ul>}
+            </li>
         })
     }
 
     return <>
-        <div className={`${styles.backgroundBlur} ${searchState.open ? styles.active : ""}`} onClick={ToggleFocus}/>
-        <section className={styles.searchContainer}>
+        <div className={styles.backgroundBlur} ref={bgRef} />
+        <Dropdown
+            classNames={{ wrapper: styles.searchContainer }}
+            options={RenderSearchResults(searchState.matches)}
+            onOpen={() => bgRef.current ? bgRef.current.classList.add(styles.active) : null}
+            onClose={() => bgRef.current ? bgRef.current.classList.remove(styles.active) : null}
+        >
             <input
                 value={searchState.query}
-                className={`${styles.userInput} ${searchState.open ? styles.active : ""}`}
+                className={styles.userInput}
                 placeholder="Search All Documentation"
-                onFocus={() => searchState.open ? null : ToggleFocus()}
-                onBlur={(e) => e.relatedTarget ? ToggleFocus() : null}
                 onChange={QueryDocs}
             ></input>
-            <div onFocus={ToggleFocus} className={`${styles.searchResults} ${searchState.open ? styles.active : ""}`}>
-                {RenderSearchResults(searchState.matches)}
-            </div>
-        </section>
+        </Dropdown>
+
     </>;
+
+    //     <section className={styles.searchContainer}>
+    //         <input
+    //             value={searchState.query}
+    //             className={`${styles.userInput} ${searchState.open ? styles.active : ""}`}
+    //             placeholder="Search All Documentation"
+    //             onFocus={() => searchState.open ? null : ToggleFocus()}
+    //             onBlur={(e) => e.relatedTarget ? ToggleFocus() : null}
+    //             onChange={QueryDocs}
+    //         ></input>
+    //         <ul className={`${styles.searchResults} ${searchState.open ? styles.active : ""}`}>
+    //             {RenderSearchResults(searchState.matches)}
+    //         </ul>
+    //     </section>
+    // </>;
 }
