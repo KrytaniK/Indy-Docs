@@ -1,0 +1,77 @@
+{
+    "versions": [
+        "v1.0.0",
+        "v0.5.6"
+    ],
+    "nav": {
+        "links": [
+            {
+                "title": "Roadmap",
+                "href": "/roadmap"
+            },
+            {
+                "title": "Reference",
+                "href": "/reference"
+            },
+            {
+                "title": "Blog",
+                "href": "/blog"
+            }
+        ]
+    },
+    "pages": {
+        "intro": {
+            "title": "Introduction",
+            "desc": "",
+            "href": "/intro",
+            "pages": {}
+        },
+        
+        "news": {
+            "title": "What's New",
+            "desc": "",
+            "href": "/news",
+            "pages": {
+
+            }
+        },
+        "core": {
+            "title": "The Reactor [Core]",
+            "desc": "",
+            "href": "/reactor/0-0-0/overview",
+            "pages": {
+                "overview": {
+                    "title": "Overview",
+                    "desc": "",
+                    "href": "/reactor/0-0-0/overview",
+                    "pages": {}
+                },
+                "quickstart": {
+                    "title": "Quick Start Guide",
+                    "desc": "",
+                    "href": "/reactor/0-0-0/quick-start-guide",
+                    "pages": {}
+                }
+            }
+        },
+        "editor": {
+            "title": "Indy Engine [Editor]",
+            "desc": "",
+            "href": "/indy/0-0-0/overview",
+            "pages": {
+                "overview": {
+                    "title": "Overview",
+                    "desc": "",
+                    "href": "/indy/0-0-0/overview",
+                    "pages": {}
+                },
+                "quickstart": {
+                    "title": "Quick Start Guide",
+                    "desc": "",
+                    "href": "/indy/0-0-0/quick-start-guide",
+                    "pages": {}
+                }
+            }
+        }
+    }
+}

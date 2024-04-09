@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { Dropdown } from "..";
+import docsMetadata from "@/docs/meta.json";
+import styles from "./versionSelect.module.css";
 
 export default function VersionSelect():
     React.ReactNode
@@ -43,15 +46,13 @@ export default function VersionSelect():
         if (defaultVersion.length === 0)
             SetInitialState();
 
-        // This is generating red squigglies, despite being valid code. Idk why.
         document.addEventListener("docs-version-request", HandleVersionRequest as EventListener);
 
         return () => {
-            // This is generating red squigglies, despite being valid code. Idk why.
             document.removeEventListener("docs-version-request", HandleVersionRequest as EventListener);
         }
 
-    }, [defaultVersion]);
+    }, [pathname, defaultVersion]);
 
     function SetTargetVersion(version: string) {
         SetDefaultVersion(version);
@@ -67,13 +68,8 @@ export default function VersionSelect():
 
         push(window.location.href.replace(oldVersionSlug, newVersionSlug));
     }
-    
-    return <select
-        id="docsVersionSelect"
-        value={defaultVersion}
-        onChange={(e) => SetTargetVersion(e.currentTarget.value)}
-    >
-        <option value={"v1.0.0"}>v1.0.0</option>
-        <option value={"v0.5.6"}>v0.5.6</option>
-    </select>
+
+    return <Dropdown options={docsMetadata.versions} classNames={{wrapper: styles.versionSelect, list: styles.versionOptions, option: styles.versionOption}} onValueChange={(value) => SetTargetVersion(value)}>
+        <button className={styles.versionSelectBtn}>{defaultVersion}</button>
+    </Dropdown>
 }

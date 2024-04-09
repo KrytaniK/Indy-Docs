@@ -1,0 +1,117 @@
+.sidebar {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filterByDropdown {
+    width: 100%;
+    font-size: 12px;
+}
+
+.filterInput {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 32px;
+    background-color: var(--dark-primary);
+    border: 2px solid var(--dark-secondary);
+    color: inherit;
+}
+
+.docLinks {
+    padding: 16px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    font-size: 16px;
+    font-weight: 600;
+    gap: 2px;
+}
+
+.docLink {
+    width: 100%;
+    border-radius: 8px;
+
+    padding-top: 4px;
+}
+
+.docLink .title {
+    width: 100%;
+    padding: 8px 16px;
+    display: inline-block;
+    border-radius: 8px;
+    opacity: 50%;
+}
+
+.docLinks > .docLink.active {
+    background-color: rgba(var(--dark-primary-rgb), 0.75);
+}
+
+.docLink.active > .title {
+    opacity: 100%;
+}
+
+.docLink .docLink .title.selected {
+    opacity: 100%;
+    background-color: rgba(var(--dark-accent-dark-rgb), 0.75);
+    color: var(--dark-accent-light);
+}
+
+.docLinks ul {
+    font-size: 12px;
+    margin: 0 8px 8px;
+}
+
+.docLink:not(.active) .title:hover {
+    opacity: 100%;
+    background-color: rgba(var(--dark-accent-dark-rgb), 0.75);
+    color: var(--dark-accent-light);
+}
+
+.resources, .cta {
+    border-top: 1px solid var(--dark-secondary);
+}
+
+.resources {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.resources > li:first-child {
+    padding: 8px 0;
+}
+
+.resources > li:not(:first-child) {
+    padding: 8px 16px;
+    font-size: 12px;
+    opacity: 50%;
+}
+
+.cta {
+    padding: 32px 16px 16px;
+}
+
+.cta > div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    background-color: rgba(var(--dark-primary-rgb), 0.75);
+    border-radius: 32px;
+    border: 1px solid var(--dark-secondary);
+    padding: 24px;
+}
+
+.cta p {
+    font-size: 12px;
+}
+
+.ctaImg {
+    aspect-ratio: 16/10.5;
+    width: 100%;
+    background-color: black;
+    border-radius: 16px;
+}

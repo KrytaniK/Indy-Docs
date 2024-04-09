@@ -1,0 +1,35 @@
+.versionSelect {
+    z-index: 1;
+}
+
+.versionSelectBtn {
+    padding: 8px 24px;
+    border-radius: 32px;
+    background-color: var(--dark-primary);
+    border: 2px solid var(--dark-secondary);
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    width: 100%;
+}
+
+.versionOptions {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.versionOption {
+    font-size: .8em;
+    text-align: center;
+
+    margin: 0 4px;
+    padding: 8px 0;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.versionOption:hover {
+    color: var(--dark-accent-light);
+    background-color: var(--dark-accent-dark);
+}
