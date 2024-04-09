@@ -6,6 +6,7 @@ import VersionSelect from "./versionSelect/versionSelect";
 import VersionLink from "./versionLink";
 import SearchBar from "./searchbar/searchbar";
 import Dropdown from "./dropdown/dropdown";
+import Sidebar from "./sidebar/sidebar";
 
 export {
   PageHeader,
@@ -16,4 +17,5 @@ export {
   VersionLink,
   SearchBar,
   Dropdown,
+  Sidebar,
 };

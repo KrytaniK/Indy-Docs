@@ -2,32 +2,15 @@
 
 import React, { useRef, useState } from "react";
 import { Dropdown, VersionLink } from "..";
+import { DocPageMatch, QueryDocs } from "@/utils/docUtils";
 import styles from "./searchbar.module.css";
-
-type DocPageEntry = {
-    title: string,
-    desc: string,
-    href: string,
-    pages: any,
-}
-
-type DocPageMatch = {
-    page: DocPageEntry,
-    children: DocPageMatch[]
-}
-
-type SearchBarProps = {
-    docsMetadata: any // Should be an imported JSON Document
-}
 
 type SearchBarState = {
     query: string,
     matches: DocPageMatch[],
 }
 
-type DocPageMatchFunction = (page: DocPageEntry) => boolean;
-
-export default function SearchBar({ docsMetadata }: SearchBarProps): React.ReactNode {
+export default function SearchBar(): React.ReactNode {
     const [searchState, SetSearchState] = useState<SearchBarState>({
         query: "",
         matches: []
@@ -35,28 +18,10 @@ export default function SearchBar({ docsMetadata }: SearchBarProps): React.React
 
     const bgRef: any = useRef();
 
-    function MatchDocQuery(pages: Object, match: DocPageMatchFunction): DocPageMatch[] {
-        const matches: DocPageMatch[] = [];
-        const entries = Object.entries(pages)
-            .map((entry: [string, unknown]) => entry[1] as DocPageEntry);
-
-        if (entries.length === 0) return [];
-
-        for (let i = 0; i < entries.length; i++) {
-            const page = entries[i];
-
-            if (match(page)) {
-                matches.push({page, children: MatchDocQuery(page.pages, match)});
-            }
-        }
-
-        return matches;
-    }
-
-    function QueryDocs(event: React.ChangeEvent<HTMLInputElement>) {
+    function Query(event: React.ChangeEvent<HTMLInputElement>) {
         const query = event.currentTarget.value;
-        
-        const matches = MatchDocQuery(docsMetadata.pages,
+
+        const matches = QueryDocs(
             (page) => (
                 page.title.toLowerCase().includes(query.toLowerCase()) ||
                 page.desc.toLowerCase().includes(query.toLowerCase())
@@ -96,24 +61,9 @@ export default function SearchBar({ docsMetadata }: SearchBarProps): React.React
                 value={searchState.query}
                 className={styles.userInput}
                 placeholder="Search All Documentation"
-                onChange={QueryDocs}
+                onChange={Query}
             ></input>
         </Dropdown>
 
     </>;
-
-    //     <section className={styles.searchContainer}>
-    //         <input
-    //             value={searchState.query}
-    //             className={`${styles.userInput} ${searchState.open ? styles.active : ""}`}
-    //             placeholder="Search All Documentation"
-    //             onFocus={() => searchState.open ? null : ToggleFocus()}
-    //             onBlur={(e) => e.relatedTarget ? ToggleFocus() : null}
-    //             onChange={QueryDocs}
-    //         ></input>
-    //         <ul className={`${styles.searchResults} ${searchState.open ? styles.active : ""}`}>
-    //             {RenderSearchResults(searchState.matches)}
-    //         </ul>
-    //     </section>
-    // </>;
 }

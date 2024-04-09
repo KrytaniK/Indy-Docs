@@ -52,7 +52,7 @@ export default function VersionSelect():
             document.removeEventListener("docs-version-request", HandleVersionRequest as EventListener);
         }
 
-    }, [defaultVersion]);
+    }, [pathname, defaultVersion]);
 
     function SetTargetVersion(version: string) {
         SetDefaultVersion(version);

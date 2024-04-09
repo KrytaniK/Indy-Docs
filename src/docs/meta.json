@@ -26,12 +26,7 @@
             "href": "/intro",
             "pages": {}
         },
-        "tutorials": {
-            "title": "Tutorials",
-            "desc": "",
-            "href": "/tutorials",
-            "pages": {}
-        },
+        
         "news": {
             "title": "What's New",
             "desc": "",

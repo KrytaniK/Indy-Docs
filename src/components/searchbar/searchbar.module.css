@@ -82,3 +82,7 @@
     color: var(--dark-accent-light);
     background-color: var(--dark-accent-dark);
 }
+
+.searchResult .searchResult {
+    padding-left: 16px;
+}
