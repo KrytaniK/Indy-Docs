@@ -30,11 +30,9 @@ export default function TableOfContents({ content }: TOCProps) {
 
         function OnScroll(event: Event) {
             let headerFound = false;
-
             
             if (self) {
                 if (self.getBoundingClientRect().top === 128) {
-                    console.log("Equal");
                     self.classList.add(styles.sticking);
                 } else {
                     self.classList.remove(styles.sticking);

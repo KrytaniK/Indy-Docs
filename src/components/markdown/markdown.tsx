@@ -2,7 +2,7 @@
 
 import styles from "./markdown.module.css";
 import dynamic from "next/dynamic";
-import { TableOfContents } from "..";
+import { TableOfContents, VersionLink } from "..";
 import { MDXComponents } from "mdx/types";
 
 export default function Markdown({ sourceFile }: { sourceFile: string }) {
@@ -40,6 +40,9 @@ export default function Markdown({ sourceFile }: { sourceFile: string }) {
                 components={{
                     h2(props: any) {
                         return <h2 id={props.children}>{props.children}</h2>
+                    },
+                    a(props: any) {
+                        return <VersionLink href={props.href}>{props.children}</VersionLink>;
                     }
                 }}
             />}

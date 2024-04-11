@@ -1,4 +1,5 @@
 import { VersionSelect, VersionLink, SearchBar, Sidebar } from "../components";
+import { DocPageEntry } from "@/utils/docUtils";
 import DocData from "@/docs/meta.json";
 
 import "@/globals.css";
@@ -20,7 +21,7 @@ export default function RootLayout({
           <VersionLink href="/">Indy Docs</VersionLink>
           <VersionSelect/>
           <SearchBar />
-          {DocData.nav.links.map((link) => {
+          {DocData.nav.links.map((link: DocPageEntry) => {
             return <VersionLink key={link.href} href={link.href}>{link.title}</VersionLink>
           })}
         </div>

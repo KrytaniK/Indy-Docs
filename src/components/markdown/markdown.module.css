@@ -6,4 +6,52 @@
 
 .content {
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: rgba(var(--dark-text-rgb), 0.75);
+}
+
+.content h1, 
+.content h2, 
+.content h3, 
+.content h4, 
+.content h5, 
+.content h6 {
+    color: var(--dark-text);
+}
+
+.content strong {
+    color: var(--dark-text);
+}
+
+.content p {
+    opacity: 100%;
+    
+}
+
+.content strong {
+    opacity: 100%;
+}
+
+.content ul {
+    list-style: disc;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.content li {
+    line-height: 150%;
+}
+
+.content a {
+    color: var(--dark-accent-light);
+    text-decoration: underline;
+}
+
+.content a:hover {
+    color: var(--dark-accent-secondary);
 }

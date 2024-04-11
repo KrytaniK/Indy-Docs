@@ -60,9 +60,11 @@
 .searchResult {
     font-size: 16px;
     margin: 0 8px;
+    
 }
 
 .searchResult > .title {
+    display: block;
     opacity: 50%;
 
     border-radius: 8px;

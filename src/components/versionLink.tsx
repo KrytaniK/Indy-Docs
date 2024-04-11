@@ -52,7 +52,6 @@ export default function VersionLink(
     }
 
     return <Link
-        style={{ display: "block" }}
         className={className}
         target={newTab ? "_blank" : "_self"}
         href={href}

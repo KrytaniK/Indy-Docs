@@ -5,18 +5,7 @@
     ],
     "nav": {
         "links": [
-            {
-                "title": "Roadmap",
-                "href": "/roadmap"
-            },
-            {
-                "title": "Reference",
-                "href": "/reference"
-            },
-            {
-                "title": "Blog",
-                "href": "/blog"
-            }
+            
         ]
     },
     "pages": {
@@ -25,15 +14,6 @@
             "desc": "",
             "href": "/intro",
             "pages": {}
-        },
-        
-        "news": {
-            "title": "What's New",
-            "desc": "",
-            "href": "/news",
-            "pages": {
-
-            }
         },
         "core": {
             "title": "The Reactor [Core]",
@@ -50,25 +30,6 @@
                     "title": "Quick Start Guide",
                     "desc": "",
                     "href": "/reactor/0-0-0/quick-start-guide",
-                    "pages": {}
-                }
-            }
-        },
-        "editor": {
-            "title": "Indy Engine [Editor]",
-            "desc": "",
-            "href": "/indy/0-0-0/overview",
-            "pages": {
-                "overview": {
-                    "title": "Overview",
-                    "desc": "",
-                    "href": "/indy/0-0-0/overview",
-                    "pages": {}
-                },
-                "quickstart": {
-                    "title": "Quick Start Guide",
-                    "desc": "",
-                    "href": "/indy/0-0-0/quick-start-guide",
                     "pages": {}
                 }
             }
