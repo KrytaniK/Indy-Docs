@@ -38,7 +38,7 @@ function RenderDocLinks(links: DocPageMatch[], currentPath: string): React.React
         return <li
             key={link.page.title}
             id={`sidebar${link.page.href}`}
-            className={styles.docLink}
+            className={`${styles.docLink} ${isCurrentPage ? styles.active : ""}`}
         >
             <VersionLink href={link.page.href} className={!isCurrentPage ? styles.title : `${styles.title} ${styles.selected}`}>{link.page.title}</VersionLink>
             {link.page.pages.length > 0 ?
