@@ -43,7 +43,7 @@ export default function VersionLink(
                     const formattedLink = splitLink.join("/");
 
                     // Utilize Default Link Behavior with Next Router to ensure persistant state
-                        push(formattedLink);
+                    push(formattedLink);
                 }
             }
         });
